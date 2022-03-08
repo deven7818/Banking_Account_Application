@@ -10,10 +10,15 @@ public class SavingsAccount {
 	 */
 	public static double annualInterestRate;
 
+	/*
+	 * variables to calculate annual rate
+	 */
+	float principal, rate, time;
+
+
 	/**
 	 * Parameterized constructor
 	 */
-
 	public SavingsAccount(float principal, float rate, float time) {
 		this.principal = principal;
 		this.rate = rate;
@@ -21,10 +26,8 @@ public class SavingsAccount {
 	}
 
 	/*
-	 * variables to calculate annual rate
-	 */
-	float principal, rate, time;
-
+	* Getter and Setter
+	*/
 	public static double getAnnualInterestRate() {
 		return annualInterestRate;
 	}
@@ -56,5 +59,10 @@ public class SavingsAccount {
 	public void setTime(float time) {
 		this.time = time;
 	}
-	
+	/**
+	* calculate annual Interest
+	*/
+	public void calculateAnnualRate(){
+		annualInterestRate = principal * rate * time;
+	}
 }
