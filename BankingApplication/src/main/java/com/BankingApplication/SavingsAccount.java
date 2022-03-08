@@ -14,8 +14,15 @@ public class SavingsAccount {
 	 * variables to calculate annual rate
 	 */
 	float principal, rate, time;
+	private double savingBalance;
 
 
+	/**
+	*Default Constructor
+	*/
+	public SavingsAccount(){
+		
+	}
 	/**
 	 * Parameterized constructor
 	 */
@@ -59,10 +66,28 @@ public class SavingsAccount {
 	public void setTime(float time) {
 		this.time = time;
 	}
+
+	public double getSavingBalance() {
+		return time;
+	}
+
+	public void setSavingBalance(double savingBalance) {
+		this.savingBalance = savingBalance;
+	}
+	
+	
 	/**
 	* calculate annual Interest
 	*/
 	public void calculateAnnualRate(){
 		annualInterestRate = principal * rate * time;
+	}
+	
+	/**
+	*Calculate Monthly Interest
+	*/
+	public float calculateMonthlyInterast(){
+		float monthlyInterest = (float) ((savingBalance * annualInterestRate) / 12);
+		return monthlyInterest;
 	}
 }
