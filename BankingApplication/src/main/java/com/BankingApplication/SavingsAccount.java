@@ -9,32 +9,18 @@ public class SavingsAccount {
 	 * Static variables - annual interest rate.
 	 */
 	public static double annualInterestRate;
-
-	/*
-	 * variables to calculate annual rate
-	 */
-	float principal, rate, time;
 	private double savingBalance;
 
-
 	/**
-	*Default Constructor
-	*/
-	public SavingsAccount(){
-		
-	}
-	/**
-	 * Parameterized constructor
+	 * Default Constructor
 	 */
-	public SavingsAccount(float principal, float rate, float time) {
-		this.principal = principal;
-		this.rate = rate;
-		this.time = time;
+	public SavingsAccount() {
+
 	}
 
 	/*
-	* Getter and Setter
-	*/
+	 * Getter and Setter
+	 */
 	public static double getAnnualInterestRate() {
 		return annualInterestRate;
 	}
@@ -43,51 +29,35 @@ public class SavingsAccount {
 		SavingsAccount.annualInterestRate = annualInterestRate;
 	}
 
-	public float getPrincipal() {
-		return principal;
-	}
-
-	public void setPrincipal(float principal) {
-		this.principal = principal;
-	}
-
-	public float getRate() {
-		return rate;
-	}
-
-	public void setRate(float rate) {
-		this.rate = rate;
-	}
-
-	public float getTime() {
-		return time;
-	}
-
-	public void setTime(float time) {
-		this.time = time;
-	}
-
 	public double getSavingBalance() {
-		return time;
+		return savingBalance;
 	}
 
 	public void setSavingBalance(double savingBalance) {
 		this.savingBalance = savingBalance;
 	}
-	
-	
+
 	/**
-	* calculate annual Interest
-	*/
-	public void calculateAnnualRate(){
-		annualInterestRate = principal * rate * time;
+	 * toString method
+	 */
+	@Override
+	public String toString() {
+		return "Total balance $"+ savingBalance ;
+	}
+
+	/**
+	 * Calculate Monthly Interest
+	 */
+	public double calculateMonthlyInterast() {
+		double monthlyInterest = (savingBalance * (annualInterestRate / 1200));
+		savingBalance = savingBalance * monthlyInterest;
+		return monthlyInterest;
 	}
 	
 	/**
-	*Calculate Monthly Interest
+	*modify rate of interest with new rate of interest
 	*/
-	public float calculateMonthlyInterast(){
-		float monthlyInterest = (float) ((savingBalance * annualInterestRate) / 12);
-		return monthlyInterest;
+	public static void modifiedRateOfIntrest(double newRateOfIntrest) {
+		annualInterestRate = newRateOfIntrest;
 	}
 }
